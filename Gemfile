@@ -18,6 +18,7 @@ group :test do
   gem "rspec-rails"
   gem "autotest"
   gem "autotest-rails"
+  gem 'machinist', '>= 2.0.0.beta2'
 end
 
 # Use unicorn as the web server

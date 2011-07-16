@@ -46,6 +46,7 @@ module Eatatjoes
 
     config.generators do |g|
       g.test_framework :rspec
+      g.fixture_replacement :machinist
     end
   end
 end
