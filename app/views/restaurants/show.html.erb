@@ -1,5 +1,19 @@
 <p id="notice"><%= notice %></p>
 
+<table>
+  <tr>
+    <th>Item</th>
+    <th>Price</th>
+    <th>Description</th>
+  </tr>
+<% @restaurant.menu_items.each do |menu_item| %>
+  <tr>
+    <td><%= menu_item.name %></td>
+    <td><%= menu_item.price %></td>
+    <td><%= menu_item.description %></td>
+  </tr>
+<% end %>
+</table>
 
 <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
 <%= link_to 'Back', restaurants_path %>
