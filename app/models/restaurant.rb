@@ -1,4 +1,4 @@
 class Restaurant < ActiveRecord::Base
-  has_many :menu_item
+  has_many :menu_items
   validates_presence_of :name
 end
