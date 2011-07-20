@@ -11,3 +11,7 @@ require 'machinist/active_record'
 Restaurant.blueprint do
   name { "Eat at Joe's"}
 end
+
+User.blueprint do
+  # Attributes here
+end

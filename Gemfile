@@ -13,6 +13,8 @@ gem 'coffee-script'
 gem 'uglifier'
 
 gem 'jquery-rails'
+gem 'devise'
+gem 'cancan'
 
 group :test do
   gem "rspec-rails"
