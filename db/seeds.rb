@@ -8,4 +8,5 @@
 
 restaurant = Restaurant.create name:"Joe's Bar and Grill"
 restaurant.menu_items.create name:"Cardiac Fries", price:5.95, description:"YUM"
+User.create email:"test@example.com"
 

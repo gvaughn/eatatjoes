@@ -13,5 +13,5 @@ Restaurant.blueprint do
 end
 
 User.blueprint do
-  # Attributes here
+  email {"user-#{sn}@example.com"}
 end

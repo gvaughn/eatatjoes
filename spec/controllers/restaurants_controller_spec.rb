@@ -43,59 +43,70 @@ describe RestaurantsController do
     end
   end
 
-  describe "GET new" do
-    it "assigns a new restaurant as @restaurant" do
-      get :new
-      assigns(:restaurant).should be_a_new(Restaurant)
-    end
-  end
-
-  describe "GET edit" do
-    it "assigns the requested restaurant as @restaurant" do
-      restaurant = Restaurant.create! valid_attributes
-      get :edit, :id => restaurant.id.to_s
-      assigns(:restaurant).should eq(restaurant)
-    end
-  end
-
-  describe "POST create" do
-    describe "with valid params" do
-      it "creates a new Restaurant" do
-        expect {
-          post :create, :restaurant => valid_attributes
-        }.to change(Restaurant, :count).by(1)
-      end
-
-      it "assigns a newly created restaurant as @restaurant" do
-        post :create, :restaurant => valid_attributes
-        assigns(:restaurant).should be_a(Restaurant)
-        assigns(:restaurant).should be_persisted
-      end
-
-      it "redirects to the created restaurant" do
-        post :create, :restaurant => valid_attributes
-        response.should redirect_to(Restaurant.last)
-      end
+  describe "authenticated users" do
+    before do
+      @user = User.find_or_create_by_email('test@example.com')
+      sign_in :user, @user
     end
 
-    describe "with invalid params" do
-      it "assigns a newly created but unsaved restaurant as @restaurant" do
-        # Trigger the behavior that occurs when invalid params are submitted
-        Restaurant.any_instance.stub(:save).and_return(false)
-        post :create, :restaurant => {}
+    describe "GET new" do
+      it "assigns a new restaurant as @restaurant" do
+        get :new
         assigns(:restaurant).should be_a_new(Restaurant)
       end
+    end
 
-      it "re-renders the 'new' template" do
-        # Trigger the behavior that occurs when invalid params are submitted
-        Restaurant.any_instance.stub(:save).and_return(false)
-        post :create, :restaurant => {}
-        response.should render_template("new")
+    describe "GET edit" do
+      it "assigns the requested restaurant as @restaurant" do
+        restaurant = Restaurant.create! valid_attributes
+        get :edit, :id => restaurant.id.to_s
+        assigns(:restaurant).should eq(restaurant)
+      end
+    end
+
+    describe "POST create" do
+      describe "with valid params" do
+        it "creates a new Restaurant" do
+          expect {
+            post :create, :restaurant => valid_attributes
+          }.to change(Restaurant, :count).by(1)
+        end
+
+        it "assigns a newly created restaurant as @restaurant" do
+          post :create, :restaurant => valid_attributes
+          assigns(:restaurant).should be_a(Restaurant)
+          assigns(:restaurant).should be_persisted
+        end
+
+        it "redirects to the created restaurant" do
+          post :create, :restaurant => valid_attributes
+          response.should redirect_to(Restaurant.last)
+        end
+      end
+
+      describe "with invalid params" do
+        it "assigns a newly created but unsaved restaurant as @restaurant" do
+          # Trigger the behavior that occurs when invalid params are submitted
+          Restaurant.any_instance.stub(:save).and_return(false)
+          post :create, :restaurant => {}
+          assigns(:restaurant).should be_a_new(Restaurant)
+        end
+
+        it "re-renders the 'new' template" do
+          # Trigger the behavior that occurs when invalid params are submitted
+          Restaurant.any_instance.stub(:save).and_return(false)
+          post :create, :restaurant => {}
+          response.should render_template("new")
+        end
       end
     end
   end
 
   describe "PUT update" do
+    before do
+      @user = User.find_or_create_by_email('test@example.com')
+      sign_in :user, @user
+    end
     describe "with valid params" do
       it "updates the requested restaurant" do
         restaurant = Restaurant.create! valid_attributes
@@ -140,6 +151,10 @@ describe RestaurantsController do
   end
 
   describe "DELETE destroy" do
+    before do
+      @user = User.find_or_create_by_email('test@example.com')
+      sign_in :user, @user
+    end
     it "destroys the requested restaurant" do
       restaurant = Restaurant.create! valid_attributes
       expect {
