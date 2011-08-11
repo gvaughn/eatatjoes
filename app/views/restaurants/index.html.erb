@@ -6,12 +6,16 @@
 <% @restaurants.each do |restaurant| %>
   <tr>
     <td><%= link_to restaurant.name, restaurant %></td>
-    <td><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
-    <td><%= link_to 'Destroy', restaurant, confirm: 'Are you sure?', method: :delete %></td>
+	<% if can? :manage, restaurant %>
+    	<td><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
+    	<td><%= link_to 'Destroy', restaurant, confirm: 'Are you sure?', method: :delete %></td>
+	<% end %>
   </tr>
 <% end %>
 </table>
 
 <br />
 
+<% if can? :create, Restaurant %>
 <%= link_to 'New Restaurant', new_restaurant_path %>
+<% end %>

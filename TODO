@@ -1,5 +1,7 @@
 # user has many restaurants
-cancan: limit view display of actions
+# cancan: limit view display of actions
 # global admin log-in/log-out link
+# cancan for new restaurant
+restaurant _form allow add of menu items
 csv import
 
