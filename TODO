@@ -1,5 +1,5 @@
 # user has many restaurants
 cancan: limit view display of actions
-global admin log-in/log-out link
+# global admin log-in/log-out link
 csv import
 
