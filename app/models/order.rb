@@ -1,5 +1,8 @@
 class Order < ActiveRecord::Base
   has_many :order_items, :dependent => :destroy
-  accepts_nested_attributes_for :order_items, :reject_if => lambda { |a| a[:name].blank? || a[:price].blank? || a[:quanitity].blank?}, :allow_destroy => true
   belongs_to :restaurant
+  
+  def order_items_attributes=(parms_hash)
+    parms_hash.each {|k,v| order_items.build v unless v[:quantity].to_i == 0 }
+  end
 end

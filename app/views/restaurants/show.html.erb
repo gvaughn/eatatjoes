@@ -3,7 +3,7 @@
 <h1><%= @restaurant.name%></h1>
 	Meet the droolicious items on the menu
 	<% unless @order.nil? %>
-		Ordering TBD
+		<%= render :template => 'orders/edit' %>
 	<% else %>
 		<%= render 'menu_read_only'%>
 	<% end %>
