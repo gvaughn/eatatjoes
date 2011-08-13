@@ -15,6 +15,7 @@ class RestaurantsController < ApplicationController
   # GET /restaurants/1.json
   def show
     @restaurant = Restaurant.find(params[:id], :include => :menu_items)
+    @order = Order.new if current_user
 
     respond_to do |format|
       format.html # show.html.erb

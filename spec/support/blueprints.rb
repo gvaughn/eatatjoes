@@ -14,4 +14,13 @@ end
 
 User.blueprint do
   email {"user-#{sn}@example.com"}
+  password {"password"}
+end
+
+OrderItem.blueprint do
+  # Attributes here
+end
+
+Order.blueprint do
+  # Attributes here
 end

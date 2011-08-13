@@ -46,6 +46,10 @@ describe RestaurantsController do
   describe "authenticated users" do
     before do
       @user = User.find_or_create_by_email('test@example.com')
+      if !@user.valid?
+        @user.password = 'password'
+        @user.save!
+      end
       sign_in :user, @user
     end
 
@@ -61,6 +65,14 @@ describe RestaurantsController do
         restaurant = Restaurant.create! valid_attributes
         get :edit, :id => restaurant.id.to_s
         assigns(:restaurant).should eq(restaurant)
+      end
+    end
+
+    describe "GET show" do
+      it "sets up empty Order" do
+        restaurant = Restaurant.create! valid_attributes
+        get :show, :id => restaurant.id.to_s
+        assigns(:order).should be_a_new(Order)
       end
     end
 
