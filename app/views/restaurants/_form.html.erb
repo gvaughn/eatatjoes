@@ -18,7 +18,7 @@
 	<table>
 		<tr><th>Name</th><th>Description</th><th>Price</th><th>&nbsp;</th></tr>
 			<%= f.fields_for :menu_items do |menu_item_form| %>
-				<tr>
+				<tr class='fields'>
 			  		<td><%= menu_item_form.text_field :name %></td>
 			  		<td><%= menu_item_form.text_field :description %></td>
 			  		<td><%= menu_item_form.text_field :price %></td>

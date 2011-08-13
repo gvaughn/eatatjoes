@@ -3,6 +3,10 @@
 # global admin log-in/log-out link
 # cancan for new restaurant
 # restaurant _form allow add of menu items
-eager load menu_items assoc
+# eager load menu_items assoc
+# better seed
+# fix removal in nested_form
+consumer ordering
+avoid hitting db in tests (got ahead of myself with machinist and not learning to use it)
 csv import
 
