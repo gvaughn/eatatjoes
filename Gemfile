@@ -1,4 +1,5 @@
 source 'http://rubygems.org'
+#TODO use explicit versions
 
 gem 'rails', '3.1.0.rc4'
 
@@ -6,6 +7,7 @@ gem 'rails', '3.1.0.rc4'
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
+gem "nested_form", :git => 'git://github.com/ryanb/nested_form.git'
 
 # Asset template engines
 gem 'sass-rails', "~> 3.1.0.rc"

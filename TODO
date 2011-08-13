@@ -2,6 +2,7 @@
 # cancan: limit view display of actions
 # global admin log-in/log-out link
 # cancan for new restaurant
-restaurant _form allow add of menu items
+# restaurant _form allow add of menu items
+eager load menu_items assoc
 csv import
 
