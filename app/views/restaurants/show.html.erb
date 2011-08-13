@@ -2,21 +2,11 @@
 
 <h1><%= @restaurant.name%></h1>
 	Meet the droolicious items on the menu
-	<%= 'order is there' if @order %>
-<table>
-  <tr>
-    <th>Item</th>
-    <th>Description</th>
-    <th>Price</th>
-  </tr>
-<% @restaurant.menu_items.each do |menu_item| %>
-  <tr>
-    <td><%= menu_item.name %></td>
-    <td><%= menu_item.description %></td>
-    <td><%= menu_item.price %></td>
-  </tr>
-<% end %>
-</table>
+	<% unless @order.nil? %>
+		Ordering TBD
+	<% else %>
+		<%= render 'menu_read_only'%>
+	<% end %>
 
 <% if can? :manage, @restaurant %>
 <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |

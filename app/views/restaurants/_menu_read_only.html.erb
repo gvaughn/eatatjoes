@@ -1,0 +1,14 @@
+<table>
+  <tr>
+    <th>Item</th>
+    <th>Description</th>
+    <th>Price</th>
+  </tr>
+<% @restaurant.menu_items.each do |menu_item| %>
+  <tr>
+    <td><%= menu_item.name %></td>
+    <td><%= menu_item.description %></td>
+    <td><%= menu_item.price %></td>
+  </tr>
+<% end %>
+</table>
