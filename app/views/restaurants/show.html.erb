@@ -1,7 +1,7 @@
 <h1><%= @restaurant.name%></h1>
 	Meet the droolicious items on the menu
 	<% unless @order.nil? %>
-		<%= render :template => 'orders/edit' %>
+		<%= render :template => 'orders/new' %>
 	<% else %>
 		<%= render 'menu_read_only'%>
 	<% end %>

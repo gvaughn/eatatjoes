@@ -1,0 +1,5 @@
+<div>Placed by <%= order.user.email %> <%= time_ago_in_words order.created_at %> ago at <%= order.restaurant.name %>
+<% order.order_items.each do |order_item| %>
+	<br><%= order_item.quantity %> <%= order_item.name %>
+<% end %>
+</div>

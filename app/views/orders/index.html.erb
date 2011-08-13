@@ -1,0 +1,12 @@
+<h1>Orders</h1>
+<% unless @my_orders.empty? %>
+	<h2>Placed by me</h2>
+	<%= render :partial => 'order', :collection => @my_orders %>
+<% end %>
+
+<% unless @my_retaurants_orders.empty? %>
+	<h2>Placed at my restaurants</h2>
+	<%= render :partial => 'order', :collection => @my_retaurants_orders %>
+<% end %>
+
+<%= link_to 'Restaurants', restaurants_path %>

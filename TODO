@@ -7,8 +7,8 @@
 # better seed
 # fix removal in nested_form
 # consumer ordering
-order listing for me
-order listing for my restaurants
+# order listing for me
+# order listing for my restaurants
+restaurant title in browser title bar
 avoid hitting db in tests (got ahead of myself with machinist and not learning to use it)
 csv import
-
