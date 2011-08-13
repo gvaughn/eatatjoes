@@ -1,4 +1,6 @@
 Eatatjoes::Application.routes.draw do
+  resources :orders, :only => [:index, :create]
+
   devise_for :users
 
   resources :restaurants
