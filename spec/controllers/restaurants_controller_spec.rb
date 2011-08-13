@@ -41,6 +41,11 @@ describe RestaurantsController do
       get :show, :id => restaurant.id.to_s
       assigns(:restaurant).should eq(restaurant)
     end
+    it "does not create an empty Order" do
+      restaurant = Restaurant.create! valid_attributes
+      get :show, :id => restaurant.id.to_s
+      assigns(:order).should be_nil
+    end
   end
 
   describe "authenticated users" do
