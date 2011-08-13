@@ -6,7 +6,9 @@
 # eager load menu_items assoc
 # better seed
 # fix removal in nested_form
-consumer ordering
+# consumer ordering
+order listing for me
+order listing for my restaurants
 avoid hitting db in tests (got ahead of myself with machinist and not learning to use it)
 csv import
 
