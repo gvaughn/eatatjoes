@@ -9,7 +9,7 @@
 # consumer ordering
 # order listing for me
 # order listing for my restaurants
-restaurant title in browser title bar
+# restaurant title in browser title bar
 order totaling
 order fulfillment
 avoid hitting db in tests (got ahead of myself with machinist and not learning to use it)
