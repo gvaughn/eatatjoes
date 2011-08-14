@@ -11,3 +11,4 @@
 <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
 <% end %>
 <%= link_to 'Back', restaurants_path %>
+<br><%= 'Sign in to place order' if current_user.nil?%>
